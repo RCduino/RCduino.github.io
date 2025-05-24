@@ -1,6 +1,9 @@
+<p align="center">
+  
 # RCduino - Arduino RC Vehicle Library
 
-<img src="https://rcduino.github.io/assets/logo.png" alt="RCduino Logo" width="100" height="100" />
+<img src="https://rcduino.github.io/assets/logo.png" alt="RCduino Logo" width="150" height="150" />
+</p>
 
 ## Introduction
 
