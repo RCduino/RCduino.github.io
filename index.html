@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCduino Library Documentation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-content">
+                <h1 class="hero-title">
+                    <i class="fas fa-car-side"></i> RCduino
+                </h1>
+                <p class="hero-subtitle">
+                    Professional Arduino Library for RC Vehicle Development
+                </p>
+                <div class="hero-buttons">
+                    <a href="#installation" class="btn btn-primary btn-lg me-3">
+                        <i class="fas fa-download"></i> Get Started
+                    </a>
+                    <a href="#examples" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-code"></i> View Examples
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="row g-0">
+            <!-- Sidebar Navigation -->
+            <div class="col-md-3">
+                <nav class="sidebar">
+                    <div class="nav flex-column">
+                        <a class="nav-link active" href="#overview">
+                            <i class="fas fa-info-circle me-2"></i> Overview
+                        </a>
+                        <a class="nav-link" href="#installation">
+                            <i class="fas fa-download me-2"></i> Installation
+                        </a>
+                        <a class="nav-link" href="#api-reference">
+                            <i class="fas fa-book me-2"></i> API Reference
+                        </a>
+                        <a class="nav-link" href="#examples">
+                            <i class="fas fa-code me-2"></i> Examples
+                        </a>
+                        <a class="nav-link" href="#wiring">
+                            <i class="fas fa-plug me-2"></i> Wiring Guide
+                        </a>
+                        <a class="nav-link" href="#simulator">
+                            <i class="fas fa-play-circle me-2"></i> Live Demo
+                        </a>
+                        <a class="nav-link" href="#troubleshooting">
+                            <i class="fas fa-wrench me-2"></i> Troubleshooting
+                        </a>
+                        <a class="nav-link" href="#faq">
+                            <i class="fas fa-question-circle me-2"></i> FAQ
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <!-- Overview Section -->
+                <section id="overview" class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-rocket"></i> Library Overview
+                    </h2>
+
+                    <div class="alert alert-info">
+                        <h5><i class="fas fa-lightbulb"></i> What is RCduino?</h5>
+                        RCduino is a comprehensive Arduino library designed specifically for RC vehicle developers.
+                        It provides a complete toolkit for building RC cars, planes, boats, and quadcopters with
+                        professional-grade features and safety systems.
+                    </div>
+
+                    <div class="feature-cards">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <h5>Motor Control</h5>
+                            <p>Advanced DC motor and ESC control with speed regulation and safety features.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-satellite-dish"></i>
+                            </div>
+                            <h5>Signal Processing</h5>
+                            <p>Decode PWM, PPM, and analog signals from RC receivers with automatic failsafe.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-battery-three-quarters"></i>
+                            </div>
+                            <h5>Battery Monitoring</h5>
+                            <p>Real-time voltage monitoring with low battery warnings and cutoff protection.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h5>Safety Systems</h5>
+                            <p>Comprehensive fail-safes including signal loss detection and emergency stops.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-compass"></i>
+                            </div>
+                            <h5>IMU Integration</h5>
+                            <p>Built-in support for gyroscopes and accelerometers for advanced control.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h5>GPS Support</h5>
+                            <p>Optional GPS integration for navigation and telemetry features.</p>
+                        </div>
+                    </div>
+
+                    <h4>Supported Platforms</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                <li class="list-group-item"><i class="fas fa-check text-success"></i> Arduino Uno</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success"></i> Arduino Nano</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success"></i> Arduino Mega</li>
+                                <li class="list-group-item"><i class="fas fa-check text-success"></i> ESP32</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                <li class="list-group-item"><i class="fas fa-car"></i> RC Cars</li>
+                                <li class="list-group-item"><i class="fas fa-plane"></i> RC Planes</li>
+                                <li class="list-group-item"><i class="fas fa-helicopter"></i> RC Quadcopters</li>
+                                <li class="list-group-item"><i class="fas fa-ship"></i> RC Boats</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Installation Section -->
+                <section id="installation" class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-download"></i> Installation Guide
+                    </h2>
+
+                    <div class="alert alert-warning">
+                        <h5><i class="fas fa-exclamation-triangle"></i> Requirements</h5>
+                        <ul class="mb-0">
+                            <li>Arduino IDE 1.8.0 or later</li>
+                            <li>Servo library (included with Arduino IDE)</li>
+                            <li>Compatible Arduino board</li>
+                        </ul>
+                    </div>
+
+                    <h4>Method 1: Arduino Library Manager</h4>
+                    <ol>
+                        <li>Open Arduino IDE</li>
+                        <li>Go to <strong>Sketch → Include Library → Manage Libraries</strong></li>
+                        <li>Search for "RCduino"</li>
+                        <li>Click <strong>Install</strong></li>
+                    </ol>
+
+                    <h4>Method 2: Manual Installation</h4>
+                    <ol>
+                        <li>Download the library files (RCduino.h and RCduino.cpp)</li>
+                        <li>Create a folder named "RCduino" in your Arduino libraries directory</li>
+                        <li>Copy the files into the RCduino folder</li>
+                        <li>Restart Arduino IDE</li>
+                    </ol>
+
+                    <div class="code-demo">
+                        <pre><code class="language-cpp">// Quick test to verify installation
+#include &lt;RCduino.h&gt;
+
+RCduino rc(RC_CAR);
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("RCduino Library Version: " + rc.getVersion());
+}
+
+void loop() {
+  // Your code here
+}</code></pre>
+                    </div>
+                </section>
+
+                <!-- API Reference Section -->
+                <section id="api-reference" class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-book"></i> API Reference
+                    </h2>
+
+                    <div class="accordion" id="apiAccordion">
+                        <!-- RCduino Main Class -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#rcduino-main">
+                                    <i class="fas fa-microchip me-2"></i> RCduino Main Class
+                                </button>
+                            </h2>
+                            <div id="rcduino-main" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <h5>Constructor</h5>
+                                    <div class="code-demo">
+                                        <pre><code class="language-cpp">RCduino rc(VehicleType type = RC_CAR);</code></pre>
+                                    </div>
+
+                                    <h5>Core Methods</h5>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Method</th>
+                                                <th>Description</th>
+                                                <th>Parameters</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>begin()</code></td>
+                                                <td>Initialize all components</td>
+                                                <td>None</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>update()</code></td>
+                                                <td>Main loop update function</td>
+                                                <td>None</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setThrottle(int)</code></td>
+                                                <td>Set motor throttle</td>
+                                                <td>-100 to 100</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setSteering(int)</code></td>
+                                                <td>Set steering position</td>
+                                                <td>-100 to 100</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>emergencyStop()</code></td>
+                                                <td>Immediately stop all motors</td>
+                                                <td>None</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <h5>Component Management</h5>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Method</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>addMotor(pin, type)</code></td>
+                                                <td>Add a motor controller</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>addServo(pin)</code></td>
+                                                <td>Add a servo controller</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>addReceiver(type)</code></td>
+                                                <td>Add signal receiver</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>addBattery(pin, ratio)</code></td>
+                                                <td>Add battery monitoring</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RCMotor Class -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#rc-motor">
+                                    <i class="fas fa-cog me-2"></i> RCMotor Class
+                                </button>
+                            </h2>
+                            <div id="rc-motor" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <h5>Constructor</h5>
+                                    <div class="code-demo">
+                                        <pre><code class="language-cpp">RCMotor motor(pin, type = BRUSHED_DC);</code></pre>
+                                    </div>
+
+                                    <h5>Key Methods</h5>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Method</th>
+                                                <th>Description</th>
+                                                <th>Parameters</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>setSpeed(int)</code></td>
+                                                <td>Set motor speed</td>
+                                                <td>-100 to 100</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>stop()</code></td>
+                                                <td>Stop motor</td>
+                                                <td>None</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>brake()</code></td>
+                                                <td>Active braking</td>
+                                                <td>None</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setReverse(bool)</code></td>
+                                                <td>Reverse direction</td>
+                                                <td>true/false</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RCServo Class -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#rc-servo">
+                                    <i class="fas fa-satellite-dish me-2"></i> RCServo Class
+                                </button>
+                            </h2>
+                            <div id="rc-servo" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <h5>Constructor</h5>
+                                    <div class="code-demo">
+                                        <pre><code class="language-cpp">RCServo servo(pin);</code></pre>
+                                    </div>
+
+                                    <h5>Key Methods</h5>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Method</th>
+                                                <th>Description</th>
+                                                <th>Parameters</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>setAngle(int)</code></td>
+                                                <td>Set servo angle</td>
+                                                <td>0-180 degrees</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setMicroseconds(int)</code></td>
+                                                <td>Direct PWM control</td>
+                                                <td>1000-2000 µs</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>center()</code></td>
+                                                <td>Center servo</td>
+                                                <td>None</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setTrim(int)</code></td>
+                                                <td>Set trim offset</td>
+                                                <td>-45 to +45</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RCReceiver Class -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#rc-receiver">
+                                    <i class="fas fa-signal me-2"></i> RCReceiver Class
+                                </button>
+                            </h2>
+                            <div id="rc-receiver" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <h5>Constructor</h5>
+                                    <div class="code-demo">
+                                        <pre><code class="language-cpp">RCReceiver receiver(type = PWM_SIGNAL);</code></pre>
+                                    </div>
+
+                                    <h5>Key Methods</h5>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Method</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>addChannel(channel, pin)</code></td>
+                                                <td>Add receiver channel</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>getChannelValue(channel)</code></td>
+                                                <td>Get normalized value (-100 to 100)</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>getChannelRaw(channel)</code></td>
+                                                <td>Get raw PWM/analog value</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>isSignalValid()</code></td>
+                                                <td>Check signal status</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RCSafety Class -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#rc-safety">
+                                    <i class="fas fa-shield-alt me-2"></i> RCSafety Class
+                                </button>
+                            </h2>
+                            <div id="rc-safety" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <h5>Safety States</h5>
+                                    <div class="code-demo">
+                                        <pre><code class="language-cpp">enum SafetyState {
+SAFE,
+SIGNAL_LOST,
+BATTERY_LOW_WARNING,
+BATTERY_CRITICAL_WARNING,
+EMERGENCY_STOP
+};</code></pre>
+                                    </div>
+
+                                    <h5>Key Methods</h5>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Method</th>
+                                                <th>Description</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code>triggerEmergencyStop()</code></td>
+                                                <td>Immediately stop vehicle</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>getSafetyState()</code></td>
+                                                <td>Get current safety state</td>
+                                            </tr>
+                                            <tr>
+                                                <td><code>setSignalTimeout(ms)</code></td>
+                                                <td>Set signal loss timeout</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Examples Section -->
+                <section id="examples" class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i> Example Sketches
+                    </h2>
+
+                    <ul class="nav nav-tabs" id="exampleTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="basic-tab" data-bs-toggle="tab"
+                                data-bs-target="#basic-example" type="button">
+                                Basic RC Car
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="advanced-tab" data-bs-toggle="tab"
+                                data-bs-target="#advanced-example" type="button">
+                                Advanced Control
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="plane-tab" data-bs-toggle="tab" data-bs-target="#plane-example"
+                                type="button">
+                                RC Plane
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="exampleTabsContent">
+                        <div class="tab-pane fade show active" id="basic-example">
+                            <h5>Simple RC Car Control</h5>
+                            <div class="code-demo">
+                                <pre><code class="language-cpp">#include &lt;RCduino.h&gt;RCduino rc(RC_CAR);
+                                void setup() {
+rc.addMotor(9); // Motor on pin 9
+rc.addServo(10); // Steering servo on pin 10
+rc.addReceiver(PWM_SIGNAL);
+rc.addBattery(A0, 2.0); // Battery monitor on A0 with 2:1 divider
+rc.begin();
+}
+
+void loop() {
+    rc.update(); // Handle all control automatically
+
+// Manual override example:
+// rc.setThrottle(50); // 50% forward
+// rc.setSteering(-30); // 30% left
+}</code></pre>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="advanced-example">
+                            <h5>Advanced Control with Safety</h5>
+                            <div class="code-demo">
+                                <pre><code class="language-cpp">#include <RCduino.h>
+
+RCduino rc(RC_CAR);
+
+void setup() {
+// Setup components
+rc.addMotor(9, BRUSHLESS_ESC); // Brushless motor
+rc.addServo(10); // Steering
+rc.addServo(11); // Auxiliary servo
+// Receiver with 3 channels
+rc.addReceiver(PWM_SIGNAL);
+rc.getReceiver()->addChannel(0, 2); // Throttle
+rc.getReceiver()->addChannel(1, 3); // Steering
+rc.getReceiver()->addChannel(2, 4); // Aux
+
+// Safety system
+rc.addBattery(A0, 2.0);
+rc.addStatus();
+
+rc.begin();
+Serial.begin(9600);
+}
+
+void loop() {
+rc.update();
+
+// Custom behavior based on safety state
+if (rc.getSafetyState() == SIGNAL_LOST) {
+    Serial.println("Signal lost! Stopping vehicle");
+}
+
+// Access raw channel values
+int auxValue = rc.getReceiver()->getChannelValue(2);
+rc.setAuxServo(1, map(auxValue, -100, 100, 0, 180));
+}</code></pre>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="plane-example">
+                            <h5>RC Plane with Multiple Control Surfaces</h5>
+                            <div class="code-demo">
+                                <pre><code class="language-cpp">#include <RCduino.h>
+
+RCduino rc(RC_PLANE);
+
+void setup() {
+// Motors (brushless ESCs)
+rc.addMotor(9, BRUSHLESS_ESC); // Main motor
+rc.addMotor(10, BRUSHLESS_ESC); // Second motor (for twin-engine)
+// Control surfaces
+rc.addServo(11); // Ailerons
+rc.addServo(12); // Elevator
+rc.addServo(13); // Rudder
+rc.addServo(A1); // Flaps
+
+// Receiver setup
+rc.addReceiver(PPM_SIGNAL);
+
+rc.begin();
+}
+
+void loop() {
+rc.update();
+// Advanced mixing could be implemented here
+// Example: Elevon mixing for delta wing planes
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Wiring Guide Section -->
+                <section id="wiring" class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-plug"></i> Wiring Guide
+                    </h2>
+
+                    <div class="wiring-diagram">
+                        <h5>Typical RC Car Wiring Diagram</h5>
+                        <img src="https://via.placeholder.com/800x400?text=RC+Car+Wiring+Diagram" alt="Wiring Diagram"
+                            class="img-fluid rounded">
+                        <p class="mt-3">Figure 1: Basic wiring for an RC car setup</p>
+                    </div>
+
+                    <h4>Pin Connection Reference</h4>
+                    <div class="pin-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Arduino Pin</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Main Motor</td>
+                                    <td>9</td>
+                                    <td>PWM pin required</td>
+                                </tr>
+                                <tr>
+                                    <td>Steering Servo</td>
+                                    <td>10</td>
+                                    <td>PWM pin required</td>
+                                </tr>
+                                <tr>
+                                    <td>Receiver Channel 1</td>
+                                    <td>2</td>
+                                    <td>Throttle input</td>
+                                </tr>
+                                <tr>
+                                    <td>Receiver Channel 2</td>
+                                    <td>3</td>
+                                    <td>Steering input</td>
+                                </tr>
+                                <tr>
+                                    <td>Battery Monitor</td>
+                                    <td>A0</td>
+                                    <td>With voltage divider</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="alert alert-warning mt-4">
+                        <h5><i class="fas fa-exclamation-triangle"></i> Important Wiring Tips</h5>
+                        <ul>
+                            <li>Use separate power supplies for motors and control circuitry when possible</li>
+                            <li>Ensure proper voltage dividers for battery monitoring</li>
+                            <li>Keep wiring neat and secure to prevent interference</li>
+                            <li>Add capacitors near motors to reduce electrical noise</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Live Demo Section -->
+                <section id="simulator" class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-play-circle"></i> Interactive Demo
+                    </h2>
+
+                    <div class="simulator-demo">
+                        <h5 class="text-center">RCduino Virtual Control Panel</h5>
+
+                        <div class="control-panel">
+                            <div class="control-group">
+                                <h6>Throttle Control</h6>
+                                <input type="range" class="form-range" min="-100" max="100" value="0"
+                                    id="throttleControl">
+                                <div class="d-flex justify-content-between">
+                                    <span>-100%</span>
+                                    <span id="throttleValue">0%</span>
+                                    <span>100%</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <h6>Steering Control</h6>
+                                <input type="range" class="form-range" min="-100" max="100" value="0"
+                                    id="steeringControl">
+                                <div class="d-flex justify-content-between">
+                                    <span>-100%</span>
+                                    <span id="steeringValue">0%</span>
+                                    <span>100%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-panel mt-3">
+                            <div class="control-group">
+                                <h6>System Status</h6>
+                                <ul class="list-unstyled">
+                                    <li><span class="status-indicator status-ok"></span> Motor: <span
+                                            id="motorStatus">Ready</span></li>
+                                    <li><span class="status-indicator status-ok"></span> Receiver: <span
+                                            id="receiverStatus">Connected</span></li>
+                                    <li><span class="status-indicator status-ok"></span> Battery: <span
+                                            id="batteryStatus">12.6V (100%)</span></li>
+                                    <li><span class="status-indicator status-ok"></span> Safety: <span
+                                            id="safetyStatus">Normal</span></li>
+                                </ul>
+                            </div>
+
+                            <div class="control-group">
+                                <h6>Actions</h6>
+                                <button class="btn btn-sm btn-danger mb-2 w-100" id="emergencyBtn">Emergency
+                                    Stop</button>
+                                <button class="btn btn-sm btn-warning w-100" id="resetBtn">Reset System</button>
+                            </div>
+                        </div>
+
+                        <div class="mt-3">
+                            <h6>Telemetry Output</h6>
+                            <div class="bg-dark p-2 rounded" style="height: 100px; overflow-y: auto;">
+                                <code id="telemetryOutput" class="text-white"></code>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Troubleshooting Section -->
+                <section id="troubleshooting" class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-wrench"></i> Troubleshooting
+                    </h2>
+
+                    <div class="alert alert-danger">
+                        <h5><i class="fas fa-times-circle"></i> Common Issues and Solutions</h5>
+                    </div>
+
+                    <div class="accordion" id="troubleshootingAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#issue1">
+                                    Motors not responding
+                                </button>
+                            </h2>
+                            <div id="issue1" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Check power connections to motor controller</li>
+                                        <li>Verify correct pin assignments</li>
+                                        <li>Ensure <code>begin()</code> was called</li>
+                                        <li>Check for emergency stop condition</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#issue2">
+                                    Erratic servo movement
+                                </button>
+                            </h2>
+                            <div id="issue2" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Ensure adequate power supply</li>
+                                        <li>Add capacitors near servos</li>
+                                        <li>Check for signal interference</li>
+                                        <li>Verify servo pulse range settings</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#issue3">
+                                    Receiver not detected
+                                </button>
+                            </h2>
+                            <div id="issue3" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Verify correct signal type (PWM/PPM)</li>
+                                        <li>Check channel mapping</li>
+                                        <li>Ensure receiver is powered</li>
+                                        <li>Check for proper signal grounding</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section id="faq" class="content-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-question-circle"></i> Frequently Asked Questions
+                    </h2>
+
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">
+                                    Can I use this library with my custom RC transmitter?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    Yes! RCduino supports standard PWM and PPM signals from most RC transmitters.
+                                    You may need to adjust channel mappings and trims to match your specific
+                                    transmitter.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2">
+                                    How do I add more than 4 motors or servos?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    The RCduino class provides access to the underlying motor and servo objects.
+                                    You can create additional RCMotor and RCServo instances directly if you need
+                                    more than the default 4 of each.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3">
+                                    Is there support for brushless motor ESCs?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse">
+                                <div class="accordion-body">
+                                    Absolutely! When adding a motor, specify <code>BRUSHLESS_ESC</code> as the motor
+                                    type.
+                                    The library will automatically handle the proper initialization and control signals
+                                    needed for brushless ESCs.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4">
+                        <h5><i class="fas fa-life-ring"></i> Need More Help?</h5>
+                        <p>Visit our <a href="#" class="alert-link">community forums</a> or open an issue on our
+                            <a href="#" class="alert-link">GitHub repository</a> for additional support.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 text-white">
+        <div class="container">
+            <p>RCduino Library &copy; 2023 RCduino Development Team | Version 1.0.0</p>
+            <div class="social-icons">
+                <a href="#" class="text-white mx-2"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-discord"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
